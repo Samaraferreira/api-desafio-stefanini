@@ -1,8 +1,24 @@
 package br.com.stefanini.maratonadev.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-public class Endereco {	
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
+
+@Entity
+@Table(name="endereco")
+public class Endereco extends PanacheEntityBase {	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
 	@Column(name="cep", nullable = false)
 	private String cep;
 	
@@ -20,9 +36,17 @@ public class Endereco {
 	
 	@Column(name="complemento", nullable = false)
 	private String complemento;
-
+	
 	public Endereco() {
 		super();
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getCep() {
@@ -72,6 +96,13 @@ public class Endereco {
 	public void setComplemento(String complemento) {
 		this.complemento = complemento;
 	}
+
+	@Override
+	public String toString() {
+		return "Endereco [id=" + id + ", cep=" + cep + ", cidade=" + cidade + ", bairro=" + bairro + ", uf=" + uf
+				+ ", logradouro=" + logradouro + ", complemento=" + complemento + "]";
+	}
+	
 	
 
 }

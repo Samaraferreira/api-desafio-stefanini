@@ -1,6 +1,7 @@
 package br.com.stefanini.maratonadev.model;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -17,7 +18,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 public class Aluguel extends PanacheEntity {
 	
 	@Column(name = "user_id", unique = true, nullable = false)
-	private UUID userId;
+	private BigInteger userId;
  
     @Column(name = "placa_carro", unique = true, nullable = false)
     private String placa_carro;
@@ -27,11 +28,11 @@ public class Aluguel extends PanacheEntity {
 		super();
 	}
 
-	public UUID getUserId() {
+	public BigInteger getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UUID userId) {
+	public void setUserId(BigInteger userId) {
 		this.userId = userId;
 	}
 

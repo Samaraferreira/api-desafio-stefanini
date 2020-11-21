@@ -1,5 +1,6 @@
 package br.com.stefanini.maratonadev.dao;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -19,10 +20,10 @@ public class UserDao {
 	EntityManager em;
 	
 	@Transactional
-	
-	public UUID inserir(User user) {
+	public BigInteger inserir(User user) {
 		user.persistAndFlush();
-		return user.getId();
+
+		return user.getCpf();
 	}
 	
 	public List<User> listar(){

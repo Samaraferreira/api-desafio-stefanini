@@ -1,18 +1,19 @@
 package br.com.stefanini.maratonadev.dto;
 
+import java.math.BigInteger;
 import java.util.UUID;
 
 public class AluguelDto {
 	
-	private UUID userId;
+	private BigInteger userId;
  
     private String placa_carro;
 
-	public UUID getUserId() {
+	public BigInteger getUserId() {
 		return userId;
 	}
 
-	public void setUserId(UUID userId) {
+	public void setUserId(BigInteger userId) {
 		this.userId = userId;
 	}
 

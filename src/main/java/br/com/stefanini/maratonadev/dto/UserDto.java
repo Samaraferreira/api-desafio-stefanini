@@ -8,8 +8,9 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.Length;
 
+import br.com.stefanini.maratonadev.model.Endereco;
+
 public class UserDto {
-	private UUID id;
 	
 	@NotNull(message = "Nome é Obrigatorio")
 	@NotBlank(message = "Não é permito nome vazio")
@@ -23,25 +24,7 @@ public class UserDto {
 
 	private int contato;
 	
-	private String cep;
-
-	private String cidade;
-
-	private String bairro;
-	
-	private String uf;
-	
-	private String logradouro;
-
-	private String complemento;
-
-	public UUID getId() {
-		return id;
-	}
-
-	public void setId(UUID id) {
-		this.id = id;
-	}
+	private Endereco endereco;
 
 	public String getNome() {
 		return nome;
@@ -75,53 +58,11 @@ public class UserDto {
 		this.contato = contato;
 	}
 
-	public String getCep() {
-		return cep;
+	public Endereco getEndereco() {
+		return endereco;
 	}
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
-
-	public String getCidade() {
-		return cidade;
-	}
-
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
-	}
-
-	public String getBairro() {
-		return bairro;
-	}
-
-	public void setBairro(String bairro) {
-		this.bairro = bairro;
-	}
-
-	public String getUf() {
-		return uf;
-	}
-
-	public void setUf(String uf) {
-		this.uf = uf;
-	}
-
-	public String getLogradouro() {
-		return logradouro;
-	}
-
-	public void setLogradouro(String logradouro) {
-		this.logradouro = logradouro;
-	}
-
-	public String getComplemento() {
-		return complemento;
-	}
-
-	public void setComplemento(String complemento) {
-		this.complemento = complemento;
-	}
-	
-	
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}	
 }
