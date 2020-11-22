@@ -1,8 +1,7 @@
 package br.com.stefanini.maratonadev.rest;
 
-import br.com.stefanini.maratonadev.dto.AluguelDto;
-import br.com.stefanini.maratonadev.service.AluguelService;
-import br.com.stefanini.maratonadev.service.UserService;
+import br.com.stefanini.maratonadev.dto.HistoricoDto;
+import br.com.stefanini.maratonadev.service.HistoricoService;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -23,10 +22,10 @@ import javax.ws.rs.core.SecurityContext;
 @Path("alugar")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class AluguelRest {
+public class HistoricoRest {
 
     @Inject
-    AluguelService service;
+    HistoricoService service;
 
     @POST
 	@Path("")
@@ -36,10 +35,10 @@ public class AluguelRest {
 	description = "Carro alugado",
 	content = {
 			@Content(mediaType =  "application/json",
-			schema = @Schema(implementation = AluguelDto.class))
+			schema = @Schema(implementation = HistoricoDto.class))
 			}
 	)
-	public Response alugar(AluguelDto aluguel, @Context SecurityContext securityContext) {
+	public Response alugar(HistoricoDto aluguel, @Context SecurityContext securityContext) {
 		
 		service.inserir(aluguel);
 		
@@ -47,5 +46,22 @@ public class AluguelRest {
 				.status(Response.Status.CREATED)
 				.build();
 	}
+    
+    @GET
+    @Operation(summary = "Listar alugados",
+            description = "Lista de carros alugados")
+    @APIResponse(responseCode = "201",
+            description = "aluguel",
+            content = {
+                    @Content(mediaType =  "application/json",
+                            schema = @Schema(implementation = HistoricoDto.class))
+            }
+    )
+    public Response listar(){
+        return Response
+                .status(Response.Status.OK)
+                .entity(service.listar())
+                .build();
+    }
 
 }

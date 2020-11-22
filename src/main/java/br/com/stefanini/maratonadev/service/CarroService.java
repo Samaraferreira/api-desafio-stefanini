@@ -2,7 +2,6 @@ package br.com.stefanini.maratonadev.service;
 
 import br.com.stefanini.maratonadev.dao.CarroDao;
 import br.com.stefanini.maratonadev.dto.CarroDto;
-import br.com.stefanini.maratonadev.model.Carro;
 import br.com.stefanini.maratonadev.model.parser.CarroParser;
 
 import javax.enterprise.context.RequestScoped;

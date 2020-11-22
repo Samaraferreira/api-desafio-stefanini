@@ -1,8 +1,7 @@
 package br.com.stefanini.maratonadev.rest;
 
-import br.com.stefanini.maratonadev.dto.AluguelDto;
 import br.com.stefanini.maratonadev.dto.UserDto;
-import br.com.stefanini.maratonadev.service.AluguelService;
+import br.com.stefanini.maratonadev.service.HistoricoService;
 import br.com.stefanini.maratonadev.service.UserService;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
@@ -30,7 +29,7 @@ public class UserRest {
     UserService service;
 
     @Inject
-    AluguelService serviceAluguel;
+    HistoricoService serviceAluguel;
     
     @GET
     @Path("")

@@ -3,7 +3,6 @@ package br.com.stefanini.maratonadev.dao;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 import javax.enterprise.context.RequestScoped;
 import javax.persistence.EntityManager;

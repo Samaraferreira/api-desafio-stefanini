@@ -1,7 +1,6 @@
 package br.com.stefanini.maratonadev.dto;
 
 import java.math.BigInteger;
-import java.util.UUID;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
